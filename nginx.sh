@@ -25,7 +25,7 @@ function logmenu {
 	do
 		echo "${datename}"
 	done
-	echo "输入4返回上级菜单"
+	echo "输入back返回上级菜单"
 	echo -n "请输入您要查询的日期："
 	read logchoose
 
@@ -37,7 +37,7 @@ if [ "${logchoose}" = "" ] ##如果用户直接回车
 then clear && echo -e "\033[41;37m 您输入的日期有误，请重新输入 \033[0m"  && logmenu && log-select
 elif [[ "${date}" =~ "${logchoose}" ]]
 then processlog && echo -e "\033[34m 按任意键返回上级菜单 \033[0m" && read -n 1 && clear && logmenu && log-select
-elif [ "${logchoose}" = 4 ]
+elif [ "${logchoose}" = back ]
 then clear && menu && get-choose && menu-select
 else clear && echo -e "\033[41;37m 您输入的日期有误，请重新输入 \033[0m" && logmenu && log-select
 fi
